@@ -10,6 +10,11 @@
     <color name="white_transparent">#00ffffff</color>
     <color name="white_100">#FFffffff</color>
     <color name="toolbar_collasped">#000000</color>
+    <color name="primary_font">#1D1D1E</color>
+    <color name="secondary_font">#515151</color>
+    <color name="optional_font">#999999</color>
+    <color name="green_highlight_font">#00C663</color>
+    <color name="green_shade">#E9FFF5</color>
 
 
 </resources>

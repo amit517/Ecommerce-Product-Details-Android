@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         init();
         initToolbar();
         appBarlayoutHandeler();
-
+        binding.include.textView2.setPaintFlags(binding.include.textView2.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 
     private void initToolbar() {
