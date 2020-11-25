@@ -15,6 +15,7 @@
     <color name="optional_font">#999999</color>
     <color name="green_highlight_font">#00C663</color>
     <color name="green_shade">#E9FFF5</color>
+    <color name="gray_border">#E8E8E8</color>
 
 
 </resources>

@@ -3,6 +3,7 @@ package com.team.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.graphics.Paint;
@@ -17,15 +18,17 @@ import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.team.myapplication.adapter.ProductAdpater;
 import com.team.myapplication.databinding.ActivityMainBinding;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ProductAdpater.ItemClickListener {
 
     private ActivityMainBinding binding;
     private AppBarLayout appBarLayout;
     private Menu menu;
+    private ProductAdpater adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,14 @@ public class MainActivity extends AppCompatActivity {
         init();
         initToolbar();
         appBarlayoutHandeler();
+        configureRV();
         binding.include.textView2.setPaintFlags(binding.include.textView2.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+    }
+
+    private void configureRV() {
+        binding.include.productRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        ProductAdpater genreAdapter = new ProductAdpater(this, this);
+        binding.include.productRV.setAdapter(genreAdapter);
     }
 
     private void initToolbar() {
@@ -115,5 +125,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void position(int position) {
+
     }
 }
