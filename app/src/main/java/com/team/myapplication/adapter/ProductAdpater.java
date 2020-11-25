@@ -8,14 +8,12 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.team.myapplication.GiveMeProduct;
+import com.team.myapplication.Constant;
 import com.team.myapplication.R;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 
 /**
  * Created by Amit on 25,November,2020
@@ -44,7 +42,7 @@ public class ProductAdpater extends RecyclerView.Adapter<ProductAdpater.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.productImage.setImageResource(GiveMeProduct.getProduct().get(position).getMainImage());
+        holder.productImage.setImageResource(Constant.getProduct().get(position).getMainImage());
         holder.productImage.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_image));
         /*if(row_index==position){
             holder.productImage.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_image));
@@ -58,7 +56,7 @@ public class ProductAdpater extends RecyclerView.Adapter<ProductAdpater.ViewHold
 
     @Override
     public int getItemCount() {
-        return GiveMeProduct.getProduct().size();
+        return Constant.getProduct().size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

@@ -4,11 +4,12 @@ import com.team.myapplication.model.Example;
 import com.team.myapplication.model.Product;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 /**
  * Created by Amit on 25,November,2020
  */
-public class GiveMeProduct {
+public class Constant {
 
     public static ArrayList<Product> getProduct(){
 
@@ -33,10 +34,18 @@ public class GiveMeProduct {
         productArrayList.add(new Product(R.drawable.main_image,sizeArray,exampleArrayList));
         productArrayList.add(new Product(R.drawable.main_image,sizeArray,exampleArrayList));
         productArrayList.add(new Product(R.drawable.main_image,sizeArray,exampleArrayList));
-
-
         return productArrayList;
 
+    }
+
+    public static String[] getShippingName(){
+        String[] shippingName = { "zDrop Premium Shipping", "Pathao Shipping", "RedeX" };
+        return shippingName;
+    }
+
+    public static String[] getCost(){
+        String[] cost = { "Cost: BDT. 4000", "Cost: BDT. 4000", "Cost: BDT. 4000" };
+        return cost;
     }
 
 }

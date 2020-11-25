@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
@@ -12,8 +13,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
@@ -28,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
     private ActivityMainBinding binding;
     private AppBarLayout appBarLayout;
     private Menu menu;
-    private ProductAdpater adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +43,56 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
         appBarlayoutHandeler();
         configureRV();
         binding.include.textView2.setPaintFlags(binding.include.textView2.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+        //Spinner start
+        MyAdapter myAdapter =new MyAdapter(MainActivity.this, R.layout.item_spinner,
+                Constant.getShippingName());
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.include.shippingSpinner.setAdapter(myAdapter);
+
+
     }
+
+    // Creating an Adapter Class
+    public class MyAdapter extends ArrayAdapter {
+
+        public MyAdapter(Context context, int textViewResourceId,
+                         String[] objects) {
+            super(context, textViewResourceId, objects);
+        }
+
+        public View getCustomView(int position, View convertView,
+                                  ViewGroup parent) {
+
+// Inflating the layout for the custom Spinner
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.item_spinner, parent, false);
+
+// Declaring and Typecasting the textview in the inflated layout
+            TextView nameTV =  layout
+                    .findViewById(R.id.nameTV);
+            TextView costTV =  layout
+                    .findViewById(R.id.costTV);
+
+            nameTV.setText(Constant.getShippingName()[position]);
+            costTV.setText(Constant.getCost()[position]);
+            return layout;
+        }
+
+        // It gets a View that displays in the drop down popup the data at the specified position
+        @Override
+        public View getDropDownView(int position, View convertView,
+                                    ViewGroup parent) {
+            return getCustomView(position, convertView, parent);
+        }
+
+        // It gets a View that displays the data at the specified position
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return getCustomView(position, convertView, parent);
+        }
+    }
+
 
     private void configureRV() {
         binding.include.productRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
