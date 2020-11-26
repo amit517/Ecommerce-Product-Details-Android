@@ -15,6 +15,7 @@
     <color name="optional_font">#999999</color>
     <color name="green_highlight_font">#00C663</color>
     <color name="green_shade">#E9FFF5</color>
+    <color name="green_deep">#008E47</color>
     <color name="gray_border">#ECECEC</color>
     <color name="shipping">#4D4D4D</color>
     <color name="spinner_font">#515151</color>

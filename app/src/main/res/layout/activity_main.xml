@@ -61,6 +61,48 @@
         </include>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_cart"
+                    android:paddingTop="10dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="10dp"
+                    android:id="@+id/imageView10"
+                    android:background="@color/green_shade"/>
+                <TextView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:background="@drawable/shape_round_green"
+                    android:textSize="8sp"
+                    android:gravity="center"
+                    android:fontFamily="@font/medium"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="15dp"/>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
