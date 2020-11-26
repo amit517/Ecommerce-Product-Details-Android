@@ -19,6 +19,7 @@
     <color name="gray_border">#ECECEC</color>
     <color name="shipping">#4D4D4D</color>
     <color name="spinner_font">#515151</color>
+    <color name="green_medium">#00b55b</color>
 
 
 </resources>

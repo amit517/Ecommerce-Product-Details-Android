@@ -100,9 +100,27 @@
 
             </RelativeLayout>
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="ADD TO CART"
+                android:background="@color/green_deep"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medium"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="BUY NOW"
+                android:background="@color/green_medium"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medium"
+                android:gravity="center"/>
 
         </LinearLayout>
-
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
