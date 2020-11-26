@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_transparent">#00ffffff</color>
     <color name="white_100">#FFffffff</color>
-    <color name="toolbar_collasped">#000000</color>
+    <color name="toolbar_collasped">#B2B2B2</color>
     <color name="primary_font">#1D1D1E</color>
     <color name="secondary_font">#515151</color>
     <color name="optional_font">#999999</color>
