@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.team.myapplication.adapter.CustomDrawerAdapter;
+import com.team.myapplication.adapter.DescriptionAdapter;
 import com.team.myapplication.adapter.ProductAdpater;
 import com.team.myapplication.databinding.ActivityMainBinding;
 
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
     private ActivityMainBinding binding;
     private AppBarLayout appBarLayout;
     private Menu menu;
-    private CustomDrawerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +52,6 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
         binding.include.shippingSpinner.setAdapter(myAdapter);
         //Spinner end
 
-        //
-        adapter = new CustomDrawerAdapter(this, R.layout.item_specification,
-                Constant.getDraware());
-        binding.include.list.setAdapter(adapter);
-        binding.include.list.setDivider(null);
-        binding.include.list.setDividerHeight(0);
 
     }
 
@@ -107,6 +100,10 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
         binding.include.productRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         ProductAdpater genreAdapter = new ProductAdpater(this, this);
         binding.include.productRV.setAdapter(genreAdapter);
+
+        binding.include.list.setLayoutManager(new LinearLayoutManager(this));
+        DescriptionAdapter descriptionAdapter = new DescriptionAdapter(this);
+        binding.include.list.setAdapter(descriptionAdapter);
     }
 
     private void initToolbar() {

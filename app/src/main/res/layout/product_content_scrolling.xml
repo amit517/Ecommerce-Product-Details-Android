@@ -11,12 +11,12 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:context=".MainActivity"
             tools:showIn="@layout/product_content_scrolling"
-            android:fillViewport="true">
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+               >
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline3"
@@ -248,15 +248,15 @@
 
                 </LinearLayout>
 
-                <ListView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:cacheColorHint="@android:color/transparent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    />
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -265,6 +265,7 @@
                     android:layout_marginTop="8dp"
                     android:paddingTop="10dp"
                     android:paddingEnd="10dp"
+                    app:layout_constraintDimensionRatio="w,1:1"
                     app:layout_constraintEnd_toStartOf="@+id/guideline4"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@+id/list"
@@ -277,16 +278,19 @@
                     android:layout_marginTop="8dp"
                     android:paddingTop="10dp"
                     android:paddingEnd="10dp"
+                    app:layout_constraintDimensionRatio="w,1:1"
                     app:layout_constraintEnd_toStartOf="@+id/guideline4"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@+id/imageView5"
-                    app:srcCompat="@drawable/pd_2" />
+                    app:srcCompat="@drawable/pd_2"
+                    android:scaleType="fitXY"/>
 
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:text="View Full Description"
                     android:textColor="#4D4D4D"
                     android:textStyle="bold"
