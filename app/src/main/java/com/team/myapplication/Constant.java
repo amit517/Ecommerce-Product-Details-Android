@@ -1,9 +1,11 @@
 package com.team.myapplication;
 
+import com.team.myapplication.model.DrawerItem;
 import com.team.myapplication.model.Example;
 import com.team.myapplication.model.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -46,6 +48,19 @@ public class Constant {
     public static String[] getCost(){
         String[] cost = { "Cost: BDT. 4000", "Cost: BDT. 4000", "Cost: BDT. 4000" };
         return cost;
+    }
+
+    public static final List<DrawerItem> getDraware(){
+        List<DrawerItem> dataList = new ArrayList<>();
+
+        dataList.add(new DrawerItem("Specifications", R.drawable.ic_specification));
+        dataList.add(new DrawerItem("Reviews", R.drawable.ic_review));
+        dataList.add(new DrawerItem("How to Order", R.drawable.ic_how_to_order));
+        dataList.add(new DrawerItem("FAQ", R.drawable.ic_faq));
+        dataList.add(new DrawerItem("Wholesale Inquiry", R.drawable.ic_wholsel));
+        dataList.add(new DrawerItem("Descriptions", R.drawable.ic_description));
+        return dataList;
+
     }
 
 }

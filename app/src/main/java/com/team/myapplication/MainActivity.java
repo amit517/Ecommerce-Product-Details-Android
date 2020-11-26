@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.team.myapplication.adapter.CustomDrawerAdapter;
 import com.team.myapplication.adapter.ProductAdpater;
 import com.team.myapplication.databinding.ActivityMainBinding;
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
     private ActivityMainBinding binding;
     private AppBarLayout appBarLayout;
     private Menu menu;
+    private CustomDrawerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,14 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
                 Constant.getShippingName());
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.include.shippingSpinner.setAdapter(myAdapter);
+        //Spinner end
 
+        //
+        adapter = new CustomDrawerAdapter(this, R.layout.item_specification,
+                Constant.getDraware());
+        binding.include.list.setAdapter(adapter);
+        binding.include.list.setDivider(null);
+        binding.include.list.setDividerHeight(0);
 
     }
 
