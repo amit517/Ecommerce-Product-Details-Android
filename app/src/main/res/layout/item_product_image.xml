@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     >
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/productImage"
             android:background="@drawable/shape_gray_image"
             android:layout_marginEnd="8dp"

@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +28,7 @@ import com.team.myapplication.R;
 import com.team.myapplication.adapter.DetailsAdapter;
 import com.team.myapplication.adapter.MyAdapter;
 
-public class ProductDialogFragment extends BottomSheetDialogFragment implements DetailsAdapter.DescriptionClickListener {
+public class ProductDialogFragment extends BottomSheetDialogFragment implements DetailsAdapter.DescriptionClickListener, View.OnClickListener {
 
     public static final String TAG = "ProductDialogFragment";
     private Context context;
@@ -34,6 +36,8 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
     private ImageView mainImage;
     private RecyclerView productRV;
     private Spinner spinner;
+    private TextView textView17, textView18, textView19, textView20;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -47,8 +51,8 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
         init(view);
         configureRV();
         mainImage.setClipToOutline(true);
-        MyAdapter myAdapter =new MyAdapter(context, R.layout.item_spinner,
-        Constant.getShippingName());
+        MyAdapter myAdapter = new MyAdapter(context, R.layout.item_spinner,
+                Constant.getShippingName());
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
 
@@ -92,7 +96,15 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
         mainImage = view.findViewById(R.id.imageView8);
         productRV = view.findViewById(R.id.productRV);
         spinner = view.findViewById(R.id.shippingSpinner);
+        textView17 = view.findViewById(R.id.textView17);
+        textView18 = view.findViewById(R.id.textView18);
+        textView19 = view.findViewById(R.id.textView19);
+        textView20 = view.findViewById(R.id.textView20);
 
+        textView17.setOnClickListener(this);
+        textView18.setOnClickListener(this);
+        textView19.setOnClickListener(this);
+        textView20.setOnClickListener(this);
     }
 
     private void configureRV() {
@@ -119,6 +131,37 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
     public void position(int position) {
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.textView17:
+                textView17.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_green_2));
+                textView18.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView19.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView20.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+
+                break;
+            case R.id.textView18:
+                textView17.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView18.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_green_2));
+                textView19.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView20.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                break;
+            case R.id.textView19:
+                textView17.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView18.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView19.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_green_2));
+                textView20.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                break;
+            case R.id.textView20:
+                textView17.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView18.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView19.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
+                textView20.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_green_2));
+                break;
+        }
     }
 
     public interface ItemClickListene {
