@@ -66,10 +66,11 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/shape_round_corner"
         android:scaleType="fitXY"
-
         android:src="@drawable/product_image"
         app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintHorizontal_bias="0.333"
+        app:layout_goneMarginStart="40dp"
+        app:layout_goneMarginEnd="40dp"
         app:layout_constraintStart_toEndOf="@+id/imageView11"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -80,7 +81,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:srcCompat="@drawable/ic_next_2" />
+        app:srcCompat="@drawable/ic_next_2"
+
+        />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -89,7 +92,9 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/imageView8"
-        app:srcCompat="@drawable/ic_previous_2" />
+        app:srcCompat="@drawable/ic_previous_2"
+
+        />
 
     <TextView
         android:id="@+id/textView14"

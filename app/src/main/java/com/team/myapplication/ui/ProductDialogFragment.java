@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -27,17 +29,18 @@ import com.team.myapplication.utils.Constant;
 import com.team.myapplication.R;
 import com.team.myapplication.adapter.DetailsAdapter;
 import com.team.myapplication.adapter.MyAdapter;
+import com.team.myapplication.utils.CurrentProduct;
 
 public class ProductDialogFragment extends BottomSheetDialogFragment implements DetailsAdapter.DescriptionClickListener, View.OnClickListener {
 
     public static final String TAG = "ProductDialogFragment";
     private Context context;
     private ItemClickListene mListener;
-    private ImageView mainImage;
+    private ImageView mainImage,imageView11,imageView9;
     private RecyclerView productRV;
     private Spinner spinner;
     private TextView textView17, textView18, textView19, textView20;
-
+    private int selectedPosition = 0;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -50,11 +53,19 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
         super.onViewCreated(view, savedInstanceState);
         init(view);
         configureRV();
+        changeImage();
         mainImage.setClipToOutline(true);
         MyAdapter myAdapter = new MyAdapter(context, R.layout.item_spinner,
                 Constant.getShippingName());
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
+
+    }
+
+    private void changeImage() {
+        mainImage.setImageResource(CurrentProduct.getCurrentProduct().getExampleArrayList().get(selectedPosition).getFrontImg());
+        imageView11.setVisibility(View.GONE);
+        imageView9.setVisibility(View.VISIBLE);
 
     }
 
@@ -100,11 +111,15 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
         textView18 = view.findViewById(R.id.textView18);
         textView19 = view.findViewById(R.id.textView19);
         textView20 = view.findViewById(R.id.textView20);
+        imageView11 = view.findViewById(R.id.imageView11);
+        imageView9 = view.findViewById(R.id.imageView9);
 
         textView17.setOnClickListener(this);
         textView18.setOnClickListener(this);
         textView19.setOnClickListener(this);
         textView20.setOnClickListener(this);
+        imageView11.setOnClickListener(this);
+        imageView9.setOnClickListener(this);
     }
 
     private void configureRV() {
@@ -128,7 +143,10 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
 
     @Override
     public void position(int position) {
-        
+
+        Log.d(TAG, "position: "+position);
+        selectedPosition = position;
+        changeImage();
     }
 
     @Override
@@ -159,6 +177,19 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
                 textView19.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_gray_2));
                 textView20.setBackground(ContextCompat.getDrawable(context, R.drawable.shape_green_2));
                 break;
+
+            case R.id.imageView11:
+                mainImage.setImageResource(CurrentProduct.getCurrentProduct().getExampleArrayList().get(selectedPosition).getFrontImg());
+                imageView11.setVisibility(View.GONE);
+                imageView9.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.imageView9:
+                mainImage.setImageResource(CurrentProduct.getCurrentProduct().getExampleArrayList().get(selectedPosition).getBackImg());
+                imageView11.setVisibility(View.VISIBLE);
+                imageView9.setVisibility(View.GONE);
+                break;
+
         }
     }
 

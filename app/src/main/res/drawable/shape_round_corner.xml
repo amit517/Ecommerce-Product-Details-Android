@@ -1,9 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <corners android:radius="12dp" />
-    <padding
-        android:bottom="@dimen/borderThickness"
-        android:left="@dimen/borderThickness"
-        android:right="@dimen/borderThickness"
-        android:top="@dimen/borderThickness" />
+
 </shape>
