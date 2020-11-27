@@ -8,5 +8,5 @@
         android:left="@dimen/borderThickness"
         android:right="@dimen/borderThickness"
         android:top="@dimen/borderThickness" />
-    <corners android:radius="5dp" /> <!-- remove line to get sharp corners -->
+    <corners android:radius="2dp" /> <!-- remove line to get sharp corners -->
 </shape>
