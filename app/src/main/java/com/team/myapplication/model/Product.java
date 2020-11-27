@@ -17,6 +17,9 @@ public class Product {
         this.exampleArrayList = exampleArrayList;
     }
 
+    public Product() {
+    }
+
     public int getMainImage() {
         return mainImage;
     }

@@ -22,7 +22,6 @@ public class ProductAdpater extends RecyclerView.Adapter<ProductAdpater.ViewHold
 
     private Context context;
     private final ItemClickListener listener;
-    private int row_index = -1;
     public ProductAdpater(Context context, ItemClickListener listener) {
         this.context = context;
         this.listener = listener;
@@ -66,6 +65,8 @@ public class ProductAdpater extends RecyclerView.Adapter<ProductAdpater.ViewHold
             super(itemView);
             listenerRef = new WeakReference<>(listener); // Click Listener Ref
             productImage = itemView.findViewById(R.id.productImage);
+
+            productImage.setOnClickListener(this);
         }
 
         @Override

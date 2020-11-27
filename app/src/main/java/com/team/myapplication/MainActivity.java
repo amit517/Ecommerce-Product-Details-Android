@@ -27,10 +27,12 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.team.myapplication.adapter.DescriptionAdapter;
 import com.team.myapplication.adapter.ProductAdpater;
 import com.team.myapplication.databinding.ActivityMainBinding;
+import com.team.myapplication.ui.CurrentProduct;
+import com.team.myapplication.ui.ProductDialogFragment;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements ProductAdpater.ItemClickListener {
+public class MainActivity extends AppCompatActivity implements ProductAdpater.ItemClickListener,ProductDialogFragment.ItemClickListene {
 
     private ActivityMainBinding binding;
     private AppBarLayout appBarLayout;
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
         binding.include.shippingSpinner.setAdapter(myAdapter);
         //Spinner end
 
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
 
     }
 
@@ -189,6 +196,12 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
 
     @Override
     public void position(int position) {
+
+        CurrentProduct.setCurrentProduct(Constant.getProduct().get(position));
+        ProductDialogFragment addPhotoBottomDialogFragment = new ProductDialogFragment();
+        addPhotoBottomDialogFragment.show(getSupportFragmentManager(),
+                ProductDialogFragment.TAG);
+
 
     }
 }
