@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,9 +22,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.team.myapplication.Constant;
+import com.team.myapplication.MainActivity;
 import com.team.myapplication.R;
 import com.team.myapplication.adapter.DescriptionAdapter;
 import com.team.myapplication.adapter.DetailsAdapter;
+import com.team.myapplication.adapter.MyAdapter;
 import com.team.myapplication.adapter.ProductAdpater;
 
 public class ProductDialogFragment extends BottomSheetDialogFragment implements DetailsAdapter.DescriptionClickListener {
@@ -33,7 +37,7 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
     private ItemClickListene mListener;
     private ImageView mainImage;
     private RecyclerView productRV;
-
+    private Spinner spinner;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -47,7 +51,10 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
         init(view);
         configureRV();
         mainImage.setClipToOutline(true);
-
+        MyAdapter myAdapter =new MyAdapter(context, R.layout.item_spinner,
+        Constant.getShippingName());
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(myAdapter);
 
     }
 
@@ -72,7 +79,7 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
 
         int windowHeight = getWindowHeight();
         if (layoutParams != null) {
-            layoutParams.height = windowHeight - (windowHeight / 10);
+            layoutParams.height = windowHeight - (windowHeight / 13);
         }
         bottomSheet.setLayoutParams(layoutParams);
         behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
@@ -88,6 +95,8 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
     private void init(View view) {
         mainImage = view.findViewById(R.id.imageView8);
         productRV = view.findViewById(R.id.productRV);
+        spinner = view.findViewById(R.id.shippingSpinner);
+
     }
 
     private void configureRV() {
@@ -115,7 +124,6 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
 
 
     }
-
 
     public interface ItemClickListene {
         void onItemClick(int position);

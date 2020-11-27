@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.team.myapplication.adapter.DescriptionAdapter;
+import com.team.myapplication.adapter.MyAdapter;
 import com.team.myapplication.adapter.ProductAdpater;
 import com.team.myapplication.databinding.ActivityMainBinding;
 import com.team.myapplication.ui.CurrentProduct;
@@ -60,46 +61,6 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
     @Override
     public void onItemClick(int position) {
 
-    }
-
-    // Creating an Adapter Class
-    public class MyAdapter extends ArrayAdapter {
-
-        public MyAdapter(Context context, int textViewResourceId,
-                         String[] objects) {
-            super(context, textViewResourceId, objects);
-        }
-
-        public View getCustomView(int position, View convertView,
-                                  ViewGroup parent) {
-
-// Inflating the layout for the custom Spinner
-            LayoutInflater inflater = getLayoutInflater();
-            View layout = inflater.inflate(R.layout.item_spinner, parent, false);
-
-// Declaring and Typecasting the textview in the inflated layout
-            TextView nameTV =  layout
-                    .findViewById(R.id.nameTV);
-            TextView costTV =  layout
-                    .findViewById(R.id.costTV);
-
-            nameTV.setText(Constant.getShippingName()[position]);
-            costTV.setText(Constant.getCost()[position]);
-            return layout;
-        }
-
-        // It gets a View that displays in the drop down popup the data at the specified position
-        @Override
-        public View getDropDownView(int position, View convertView,
-                                    ViewGroup parent) {
-            return getCustomView(position, convertView, parent);
-        }
-
-        // It gets a View that displays the data at the specified position
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            return getCustomView(position, convertView, parent);
-        }
     }
 
 
