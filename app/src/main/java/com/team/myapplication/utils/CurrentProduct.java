@@ -1,4 +1,4 @@
-package com.team.myapplication.ui;
+package com.team.myapplication.utils;
 
 import com.team.myapplication.model.Product;
 

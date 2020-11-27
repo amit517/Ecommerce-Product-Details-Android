@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.team.myapplication.Constant;
+import com.team.myapplication.utils.Constant;
 import com.team.myapplication.R;
 
 import java.lang.ref.WeakReference;

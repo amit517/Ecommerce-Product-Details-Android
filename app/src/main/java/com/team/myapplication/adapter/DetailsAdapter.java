@@ -10,9 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.team.myapplication.Constant;
 import com.team.myapplication.R;
-import com.team.myapplication.ui.CurrentProduct;
+import com.team.myapplication.utils.CurrentProduct;
 
 import java.lang.ref.WeakReference;
 

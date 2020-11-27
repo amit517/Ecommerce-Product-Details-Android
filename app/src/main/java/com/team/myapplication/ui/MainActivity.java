@@ -1,35 +1,29 @@
-package com.team.myapplication;
+package com.team.myapplication.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.team.myapplication.R;
 import com.team.myapplication.adapter.DescriptionAdapter;
 import com.team.myapplication.adapter.MyAdapter;
 import com.team.myapplication.adapter.ProductAdpater;
 import com.team.myapplication.databinding.ActivityMainBinding;
-import com.team.myapplication.ui.CurrentProduct;
-import com.team.myapplication.ui.ProductDialogFragment;
+import com.team.myapplication.utils.Constant;
+import com.team.myapplication.utils.CurrentProduct;
 
 import java.util.Objects;
 
@@ -41,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         init();
         initToolbar();
         appBarlayoutHandeler();

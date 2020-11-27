@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.team.myapplication.Constant;
+import com.team.myapplication.utils.Constant;
 import com.team.myapplication.R;
 
 public class MyAdapter extends ArrayAdapter {

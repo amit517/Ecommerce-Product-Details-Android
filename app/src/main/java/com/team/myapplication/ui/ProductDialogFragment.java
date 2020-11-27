@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -22,13 +21,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.team.myapplication.Constant;
-import com.team.myapplication.MainActivity;
+import com.team.myapplication.utils.Constant;
 import com.team.myapplication.R;
-import com.team.myapplication.adapter.DescriptionAdapter;
 import com.team.myapplication.adapter.DetailsAdapter;
 import com.team.myapplication.adapter.MyAdapter;
-import com.team.myapplication.adapter.ProductAdpater;
 
 public class ProductDialogFragment extends BottomSheetDialogFragment implements DetailsAdapter.DescriptionClickListener {
 

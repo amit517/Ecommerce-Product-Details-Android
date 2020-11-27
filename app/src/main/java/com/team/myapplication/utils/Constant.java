@@ -1,5 +1,6 @@
-package com.team.myapplication;
+package com.team.myapplication.utils;
 
+import com.team.myapplication.R;
 import com.team.myapplication.model.DrawerItem;
 import com.team.myapplication.model.Example;
 import com.team.myapplication.model.Product;
