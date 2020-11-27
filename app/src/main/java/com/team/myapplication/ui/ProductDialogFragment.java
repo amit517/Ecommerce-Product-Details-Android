@@ -111,7 +111,6 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
         productRV.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         DetailsAdapter adapter = new DetailsAdapter(context, this);
         productRV.setAdapter(adapter);
-
     }
 
     @Override
@@ -129,8 +128,7 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
 
     @Override
     public void position(int position) {
-
-
+        
     }
 
     @Override
