@@ -47,10 +47,8 @@ public class DescriptionAdapter extends RecyclerView.Adapter<DescriptionAdapter.
         private TextView drawer_itemName;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             drawer_icon = itemView.findViewById(R.id.drawer_icon);
             drawer_itemName = itemView.findViewById(R.id.drawer_itemName);
         }
-
         }
     }

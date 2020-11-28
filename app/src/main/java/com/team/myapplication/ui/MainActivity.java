@@ -27,11 +27,12 @@ import com.team.myapplication.utils.CurrentProduct;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements ProductAdpater.ItemClickListener,ProductDialogFragment.ItemClickListene {
+public class MainActivity extends AppCompatActivity implements ProductAdpater.ItemClickListener, ProductDialogFragment.ItemClickListene {
 
     private ActivityMainBinding binding;
     private AppBarLayout appBarLayout;
     private Menu menu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,20 +44,17 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
         binding.include.textView2.setPaintFlags(binding.include.textView2.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
         //Spinner start
-        MyAdapter myAdapter =new MyAdapter(MainActivity.this, R.layout.item_spinner,
+        MyAdapter myAdapter = new MyAdapter(MainActivity.this, R.layout.item_spinner,
                 Constant.getShippingName());
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.include.shippingSpinner.setAdapter(myAdapter);
         //Spinner end
-
-
     }
 
     @Override
     public void onItemClick(int position) {
 
     }
-
 
     private void configureRV() {
         binding.include.productRV.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -108,8 +106,8 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 double percentage = (double) Math.abs(verticalOffset) / appBarLayout.getHeight();
-                Log.d("TAG", "onOffsetChanged: "+percentage);
-                Drawable search,more;
+                Log.d("TAG", "onOffsetChanged: " + percentage);
+                Drawable search, more;
                 if (menu != null) {
                     search = menu.getItem(0).getIcon();
                     more = menu.getItem(1).getIcon();
@@ -118,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
                     more = null;
                 }
 
-                if(percentage< 0.75){
+                if (percentage < 0.75) {
                     collapsingToolbarLayout.setTitleEnabled(false);
                     collapsingToolbarLayout.setTitle(" ");
                     binding.toolbar.setBackground(new ColorDrawable(getResources().getColor(R.color.white_transparent)));
@@ -126,19 +124,18 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
                     upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
 
                     getSupportActionBar().setHomeAsUpIndicator(upArrow);
-                    if (search != null && more!= null) {
+                    if (search != null && more != null) {
                         search.mutate();
                         search.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
                         more.mutate();
                         more.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
                     }
-                }
-                else {
+                } else {
                     collapsingToolbarLayout.setTitleEnabled(false);
                     binding.toolbar.setBackground(new ColorDrawable(getResources().getColor(R.color.white_100)));
                     upArrow.setColorFilter(getResources().getColor(R.color.toolbar_collasped), PorterDuff.Mode.SRC_ATOP);
                     getSupportActionBar().setHomeAsUpIndicator(upArrow);
-                    if (search != null && more!= null) {
+                    if (search != null && more != null) {
                         search.mutate();
                         search.setColorFilter(getResources().getColor(R.color.toolbar_collasped), PorterDuff.Mode.SRC_ATOP);
                         more.mutate();
@@ -156,7 +153,5 @@ public class MainActivity extends AppCompatActivity implements ProductAdpater.It
         ProductDialogFragment addPhotoBottomDialogFragment = new ProductDialogFragment();
         addPhotoBottomDialogFragment.show(getSupportFragmentManager(),
                 ProductDialogFragment.TAG);
-
-
     }
 }

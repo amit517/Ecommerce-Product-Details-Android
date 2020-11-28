@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -25,10 +24,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-import com.team.myapplication.utils.Constant;
 import com.team.myapplication.R;
 import com.team.myapplication.adapter.DetailsAdapter;
 import com.team.myapplication.adapter.MyAdapter;
+import com.team.myapplication.utils.Constant;
 import com.team.myapplication.utils.CurrentProduct;
 
 public class ProductDialogFragment extends BottomSheetDialogFragment implements DetailsAdapter.DescriptionClickListener, View.OnClickListener {
@@ -36,11 +35,12 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
     public static final String TAG = "ProductDialogFragment";
     private Context context;
     private ItemClickListene mListener;
-    private ImageView mainImage,imageView11,imageView9;
+    private ImageView mainImage, imageView11, imageView9;
     private RecyclerView productRV;
     private Spinner spinner;
     private TextView textView17, textView18, textView19, textView20;
     private int selectedPosition = 0;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -66,7 +66,6 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
         mainImage.setImageResource(CurrentProduct.getCurrentProduct().getExampleArrayList().get(selectedPosition).getFrontImg());
         imageView11.setVisibility(View.GONE);
         imageView9.setVisibility(View.VISIBLE);
-
     }
 
     @NonNull
@@ -144,7 +143,7 @@ public class ProductDialogFragment extends BottomSheetDialogFragment implements 
     @Override
     public void position(int position) {
 
-        Log.d(TAG, "position: "+position);
+        Log.d(TAG, "position: " + position);
         selectedPosition = position;
         changeImage();
     }
